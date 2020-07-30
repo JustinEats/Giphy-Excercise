@@ -5,7 +5,7 @@ const $giphyHere = $('#giphy-append');
 const $image = $('img');
 
 async function searchGiphy(searchGif) {
-	searchGif = $input.val();
+	searchGif = $input.val(); //takes the input value and puts in on query in params
 	try {
 		const res = await axios.get('http://api.giphy.com/v1/gifs/search', {
 			params: { q: searchGif, api_key: 'MhAodEJIJxQMxW9XqxKjyXfNYdLoOIym' }
@@ -20,11 +20,11 @@ function imageInput(response) {
 	const { data } = response.data;
 	const $image = $('<img>');
 	$image.attr({
-		src: data[0].images.original.url,
+		src: data[Math.floor(Math.random() * 25) + 1].images.original.url, //randomize through array.length(index) of images
 		class: 'w-50 text-center rounded'
 	});
 	$giphyHere.append($image);
-	console.log(data[0].images.original.url);
+	console.log(data);
 }
 
 $form.on('submit', function(e) {
