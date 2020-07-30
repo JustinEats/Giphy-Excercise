@@ -2,7 +2,6 @@ const $form = $('#giphy-form');
 const $input = $('#giphy-input');
 const $buttonRemove = $('#remove-all');
 const $giphyHere = $('#giphy-append');
-const $image = $('img');
 
 async function searchGiphy(searchGif) {
 	searchGif = $input.val(); //takes the input value and puts in on query in params
@@ -24,7 +23,6 @@ function imageInput(response) {
 		class: 'w-50 text-center rounded'
 	});
 	$giphyHere.append($image);
-	console.log(data);
 }
 
 $form.on('submit', function(e) {
